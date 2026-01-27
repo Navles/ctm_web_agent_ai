@@ -31,7 +31,7 @@ export const InputBar = ({
     return (
         <div className={cn(
             "w-full max-w-3xl mx-auto transition-all duration-500 ease-in-out",
-            isInitial ? "mb-6" : "pb-4",
+            isInitial ? "mb-1" : "pb-1",
             className
         )}>
             <div className="relative glass-card premium-shadow border border-border bg-card p-3 min-h-[120px] flex flex-col">
@@ -39,7 +39,7 @@ export const InputBar = ({
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder={isInitial ? "How can I help you today?" : "Reply..."}
-                    className="flex-1 bg-transparent border-none outline-none resize-none text-foreground placeholder:text-muted-foreground py-2 px-1 text-sm"
+                    className="flex-1 bg-transparent border-none outline-none resize-none text-foreground placeholder:text-muted-foreground py-1 px-1 text-sm"
                     onKeyDown={(e) => {
                         if (e.key === "Enter" && !e.shiftKey) {
                             e.preventDefault();
@@ -48,7 +48,7 @@ export const InputBar = ({
                     }}
                 />
 
-                <div className="flex items-center justify-between mt-2 pt-2">
+                <div className="flex items-center justify-between mt-1 pt-1">
                     <div className="flex items-center gap-2">
                         <button
                             onClick={onNewChat}

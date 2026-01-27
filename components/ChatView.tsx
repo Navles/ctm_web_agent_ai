@@ -51,7 +51,7 @@ export const ChatView = ({
                 ref={scrollRef}
                 className="flex-1 overflow-y-auto px-6 py-8 space-y-8 scroll-smooth"
             >
-                <div className="max-w-5xl mx-auto w-full space-y-8 pb-48">
+                <div className="max-w-5xl mx-auto w-full space-y-8">
                     {/* Persistent Starter Cards */}
                     <StarterCards onSend={onSend} />
 
@@ -110,11 +110,11 @@ export const ChatView = ({
                             </div>
                         ))}
                     </div>
-                    <div ref={messagesEndRef} className="h-px w-full" />
+                    <div ref={messagesEndRef} className="h-65 w-full" />
                 </div>
             </div>
 
-            <div className="absolute bottom-0 left-0 right-0 px-6 backdrop-gradient-to-t from-background via-background/90 to-transparent pt-10 pb-6 z-20">
+            <div className="absolute bottom-0 left-0 right-0 px-6 bg-background border-t border-border pt-6 pb-6 z-20">
                 <InputBar
                     onSend={onSend}
                     onHistoryClick={onHistoryClick}
