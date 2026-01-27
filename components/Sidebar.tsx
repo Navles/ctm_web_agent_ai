@@ -4,14 +4,9 @@ import React from "react";
 import {
     PanelLeft,
     Plus,
-    MessageSquare,
-    Box,
-    Library,
-    Briefcase,
-    Code2,
-    UserCircle
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "../themeToggle";
 
 const SidebarItem = ({
     icon: Icon,
@@ -26,7 +21,7 @@ const SidebarItem = ({
         onClick={onClick}
         className={cn(
             "p-2.5 rounded-xl transition-all duration-200 group relative",
-            active ? "sidebar-icon-active" : "text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/50"
+            active ? "sidebar-icon-active" : "text-muted-foreground hover:text-foreground hover:bg-accent/10"
         )}
     >
         <Icon size={24} strokeWidth={1.5} />
@@ -52,17 +47,28 @@ export const Sidebar = ({
                     onClick={onHistoryToggle}
                     className={cn(
                         "p-2 transition-colors",
-                        isHistoryOpen ? "text-white" : "text-zinc-400 hover:text-white"
+                        isHistoryOpen ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                     )}
                 >
                     <PanelLeft size={24} strokeWidth={1.5} />
                 </button>
                 <button
                     onClick={onNewChat}
-                    className="w-12 h-12 rounded-full border border-border/50 bg-zinc-800/20 flex items-center justify-center text-zinc-400 hover:text-white hover:border-zinc-500 hover:bg-zinc-800 transition-all duration-300"
+                    className="w-12 h-12 rounded-full border border-border/50 bg-secondary/10 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-border hover:bg-secondary/20 transition-all duration-300"
                 >
                     <Plus size={24} strokeWidth={1.5} />
                 </button>
+            </div>
+
+            {/* Spacer */}
+            <div className="flex-1" />
+
+            {/* Theme toggle at bottom */}
+            <div className="flex flex-col items-center gap-4">
+                <ThemeToggle />
+                <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-muted-foreground text-xs font-medium hover:bg-secondary/40 transition-colors cursor-pointer ring-1 ring-border">
+                    U
+                </div>
             </div>
         </aside >
     );

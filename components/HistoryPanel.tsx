@@ -21,14 +21,14 @@ export const HistoryPanel = ({ isOpen, onClose }: HistoryPanelProps) => {
 
     return (
         <div className={cn(
-            "h-full border-r border-border bg-[#0a0a0a] transition-all duration-500 ease-in-out flex flex-col shrink-0 overflow-hidden",
+            "h-full border-r border-border bg-sidebar transition-all duration-500 ease-in-out flex flex-col shrink-0 overflow-hidden",
             isOpen ? "w-[300px] opacity-100 translate-x-0" : "w-0 opacity-0 -translate-x-10"
         )}>
             <header className="h-16 flex items-center justify-between px-4 border-b border-border shrink-0">
-                <h2 className="text-sm font-semibold text-zinc-200 pl-2">Chat History</h2>
+                <h2 className="text-sm font-semibold text-foreground pl-2">Chat History</h2>
                 <button
                     onClick={onClose}
-                    className="p-2 text-zinc-500 hover:text-white transition-colors hover:bg-zinc-800 rounded-lg"
+                    className="p-2 text-muted-foreground hover:text-foreground transition-colors hover:bg-secondary rounded-lg"
                 >
                     <X size={20} />
                 </button>
@@ -36,11 +36,11 @@ export const HistoryPanel = ({ isOpen, onClose }: HistoryPanelProps) => {
 
             <div className="p-4 border-b border-border">
                 <div className="relative">
-                    <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" />
+                    <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
                     <input
                         type="text"
                         placeholder="Search chats..."
-                        className="w-full bg-zinc-900 border border-zinc-800 rounded-lg py-2 pl-9 pr-4 text-sm text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:border-zinc-700"
+                        className="w-full bg-secondary/50 border border-border rounded-lg py-2 pl-9 pr-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent/50 transition-colors"
                     />
                 </div>
             </div>
@@ -50,12 +50,12 @@ export const HistoryPanel = ({ isOpen, onClose }: HistoryPanelProps) => {
                     {dummyHistory.map((item) => (
                         <button
                             key={item.id}
-                            className="w-full flex flex-col gap-1 p-3 rounded-lg hover:bg-zinc-900 transition-colors text-left group"
+                            className="w-full flex flex-col gap-1 p-3 rounded-lg hover:bg-accent/10 transition-colors text-left group"
                         >
-                            <div className="text-sm text-zinc-300 font-medium truncate group-hover:text-white transition-colors">
+                            <div className="text-sm text-foreground font-medium truncate group-hover:text-accent transition-colors">
                                 {item.title}
                             </div>
-                            <div className="text-xs text-zinc-600">
+                            <div className="text-xs text-muted-foreground">
                                 {item.time}
                             </div>
                         </button>

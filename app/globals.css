@@ -1,23 +1,42 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #09090b;
-  --color-foreground: #fafafa;
-  --color-sidebar: #121215;
-  --color-card: #1c1c1f;
-  --color-border: #27272a;
-  --color-accent: #f59e0b;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-sidebar: var(--sidebar);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
   --color-accent-soft: rgba(245, 158, 11, 0.15);
   --color-primary-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
 }
 
 :root {
+  /* Dark theme (default) */
   --background: #09090b;
   --foreground: #fafafa;
   --sidebar: #121215;
   --card: #1c1c1f;
   --border: #27272a;
   --accent: #f59e0b;
+  --secondary: #27272a;
+  /* zinc-800 */
+  --muted: #52525b;
+  --muted-foreground: #a1a1aa;
+}
+
+.light {
+  /* Light theme */
+  --background: #ffffff;
+  --foreground: #09090b;
+  --sidebar: #f4f4f5;
+  --card: #ffffff;
+  --border: #e4e4e7;
+  --accent: #f59e0b;
+  --secondary: #e4e4e7;
+  /* zinc-200 to distinguish from bg */
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
 }
 
 body {
@@ -26,6 +45,7 @@ body {
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 @layer base {
@@ -42,8 +62,17 @@ body {
     border-radius: 1rem;
   }
 
+  .light .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
   .premium-shadow {
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .light .premium-shadow {
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
   }
 
   .sidebar-icon-active {
@@ -53,6 +82,12 @@ body {
 
   .text-gradient {
     background: linear-gradient(to right, #ffffff, #a1a1aa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .light .text-gradient {
+    background: linear-gradient(to right, #09090b, #52525b);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -72,7 +107,15 @@ body {
     border-radius: 10px;
   }
 
+  .light ::-webkit-scrollbar-thumb {
+    background: #d4d4d8;
+  }
+
   ::-webkit-scrollbar-thumb:hover {
     background: #52525b;
+  }
+
+  .light ::-webkit-scrollbar-thumb:hover {
+    background: #a1a1aa;
   }
 }

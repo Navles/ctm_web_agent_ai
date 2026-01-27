@@ -5,9 +5,9 @@ import { cn } from "@/lib/utils";
 
 // Generic Card Wrapper
 const Card = ({ children, title, className, icon: Icon }: any) => (
-    <div className={cn("bg-white text-zinc-900 rounded-2xl overflow-hidden shadow-sm flex flex-col p-5 border border-zinc-100", className)}>
+    <div className={cn("bg-card text-card-foreground rounded-2xl overflow-hidden shadow-sm flex flex-col p-5 border border-border", className)}>
         <div className="flex items-center justify-between mb-4">
-            <span className="text-[10px] uppercase tracking-wider text-zinc-400 font-bold">{title}</span>
+            <span className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold">{title}</span>
         </div>
         {children}
     </div>
@@ -57,7 +57,7 @@ export const FlightCard = () => (
                 <div className="text-sm font-bold text-center">On Time</div>
             </div>
             <div className="text-right">
-                <div className="text-[10px] text-zinc-400 font-bold uppercase">Arrives</div>
+                <div className="text-[10px] text-muted-foreground font-bold uppercase">Arrives</div>
                 <div className="text-sm font-bold">2:30 PM</div>
             </div>
         </div>

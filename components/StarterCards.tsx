@@ -12,14 +12,14 @@ import {
 const StarterCard = ({ title, subtitle, desc, icon: Icon, onClick }: any) => (
     <button
         onClick={onClick}
-        className="flex flex-col items-start text-left p-3 bg-zinc-900/50 hover:bg-zinc-800/80 border border-white/5 hover:border-white/10 rounded-xl transition-all group w-full h-full min-h-[100px]"
+        className="flex flex-col items-start text-left p-3 bg-card hover:bg-accent/5 border border-border hover:border-accent/20 rounded-xl transition-all group w-full h-full min-h-[100px] shadow-sm hover:shadow-md"
     >
-        <div className="w-7 h-7 rounded-lg bg-zinc-800 flex items-center justify-center mb-2 group-hover:bg-accent/10 group-hover:text-accent transition-colors text-zinc-400">
+        <div className="w-7 h-7 rounded-lg bg-secondary/50 flex items-center justify-center mb-2 group-hover:bg-accent/10 group-hover:text-accent transition-colors text-muted-foreground">
             <Icon size={16} />
         </div>
-        <h3 className="text-zinc-200 font-semibold text-xs mb-0.5">{title}</h3>
-        <p className="text-zinc-500 text-[10px] mb-1.5 line-clamp-2">{subtitle}</p>
-        <p className="text-zinc-600 text-[9px] italic mt-auto">{desc}</p>
+        <h3 className="text-foreground font-semibold text-xs mb-0.5">{title}</h3>
+        <p className="text-muted-foreground text-[10px] mb-1.5 line-clamp-2">{subtitle}</p>
+        <p className="text-muted-foreground/80 text-[9px] italic mt-auto">{desc}</p>
     </button>
 );
 

@@ -34,12 +34,12 @@ export const InputBar = ({
             isInitial ? "mb-6" : "pb-4",
             className
         )}>
-            <div className="relative glass-card premium-shadow border border-white/5 bg-zinc-900/50 p-3 min-h-[120px] flex flex-col">
+            <div className="relative glass-card premium-shadow border border-border bg-card p-3 min-h-[120px] flex flex-col">
                 <textarea
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder={isInitial ? "How can I help you today?" : "Reply..."}
-                    className="flex-1 bg-transparent border-none outline-none resize-none text-zinc-100 placeholder:text-zinc-500 py-2 px-1 text-sm"
+                    className="flex-1 bg-transparent border-none outline-none resize-none text-foreground placeholder:text-muted-foreground py-2 px-1 text-sm"
                     onKeyDown={(e) => {
                         if (e.key === "Enter" && !e.shiftKey) {
                             e.preventDefault();
@@ -52,13 +52,13 @@ export const InputBar = ({
                     <div className="flex items-center gap-2">
                         <button
                             onClick={onNewChat}
-                            className="p-2 text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-lg transition-colors"
+                            className="p-2 text-muted-foreground hover:text-foreground hover:bg-secondary rounded-lg transition-colors"
                         >
                             <Plus size={20} />
                         </button>
                         <button
                             onClick={onHistoryClick}
-                            className="p-2 text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-lg transition-colors"
+                            className="p-2 text-muted-foreground hover:text-foreground hover:bg-secondary rounded-lg transition-colors"
                         >
                             <History size={20} />
                         </button>
@@ -72,7 +72,7 @@ export const InputBar = ({
                                 "p-2 rounded-lg transition-all duration-300",
                                 message.trim()
                                     ? "bg-accent text-white"
-                                    : "bg-zinc-800 text-zinc-600 cursor-not-allowed"
+                                    : "bg-secondary text-muted-foreground cursor-not-allowed"
                             )}
                         >
                             <ArrowUp size={20} />

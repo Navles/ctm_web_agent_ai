@@ -26,13 +26,13 @@ export const InitialView = ({
         <div className="flex-1 flex flex-col relative h-full">
             {/* Center Content: Greeting & Cards */}
             <div className="flex-1 flex flex-col items-center justify-center w-full max-w-5xl mx-auto px-4 gap-8">
-                <div className="flex items-center gap-4 text-4xl font-serif text-zinc-200 tracking-tight">
+                <div className="flex items-center gap-4 text-4xl font-serif text-foreground tracking-tight">
                     <img
                         src="/ctm-01.png"
                         alt="CTM Logo"
-                        className="w-14 h-14 object-contain drop-shadow-[0_0_15px_rgba(245,158,11,0.3)]"
+                        className="w-14 h-14 object-contain"
                     />
-                    <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400">
+                    <h1 className="text-foreground">
                         {getGreeting()}
                     </h1>
                 </div>

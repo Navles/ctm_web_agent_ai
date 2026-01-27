@@ -66,11 +66,11 @@ export const ChatView = ({
                             >
                                 {msg.role === "user" ? (
                                     <>
-                                        <div className="bg-zinc-900 border border-white/5 px-4 py-2.5 rounded-2xl text-zinc-200 max-w-[85%] text-sm premium-shadow order-1">
+                                        <div className="bg-secondary border border-border px-4 py-2.5 rounded-2xl text-foreground max-w-[85%] text-sm premium-shadow order-1">
                                             {msg.content}
                                         </div>
-                                        <div className="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center shrink-0 order-2 border border-white/5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-400">
+                                        <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center shrink-0 order-2 border border-border">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-muted-foreground">
                                                 <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
                                                 <circle cx="12" cy="7" r="4" />
                                             </svg>
@@ -78,7 +78,7 @@ export const ChatView = ({
                                     </>
                                 ) : (
                                     <>
-                                        <div className="w-8 h-8 rounded-full bg-zinc-800/50 flex items-center justify-center shrink-0 border border-white/5 mt-1">
+                                        <div className="w-8 h-8 rounded-full bg-background flex items-center justify-center shrink-0 border border-border mt-1">
                                             <img
                                                 src="/ctm-01.png"
                                                 alt="Bot"
@@ -86,21 +86,21 @@ export const ChatView = ({
                                             />
                                         </div>
                                         <div className="flex flex-col gap-2 max-w-[85%]">
-                                            <div className="text-zinc-100 text-[15px] leading-relaxed font-serif pt-1.5">
+                                            <div className="text-foreground text-[15px] leading-relaxed font-serif pt-1.5">
                                                 {msg.content}
                                             </div>
 
                                             {msg.artifact && (
                                                 <div
                                                     onClick={() => onViewArtifact?.(msg.artifact!.id)}
-                                                    className="flex items-center gap-4 bg-zinc-900/50 border border-border p-4 rounded-xl cursor-pointer hover:bg-zinc-800 transition-all group w-fit mt-2"
+                                                    className="flex items-center gap-4 bg-card border border-border p-4 rounded-xl cursor-pointer hover:bg-secondary/50 transition-all group w-fit mt-2 shadow-sm"
                                                 >
                                                     <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-colors">
                                                         <SquareTerminal size={20} />
                                                     </div>
                                                     <div className="flex flex-col">
-                                                        <span className="text-sm font-bold text-zinc-200">{msg.artifact.title}</span>
-                                                        <span className="text-xs text-zinc-500">Click to view artifact</span>
+                                                        <span className="text-sm font-bold text-foreground">{msg.artifact.title}</span>
+                                                        <span className="text-xs text-muted-foreground">Click to view artifact</span>
                                                     </div>
                                                 </div>
                                             )}

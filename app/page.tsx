@@ -27,7 +27,9 @@ export default function Home() {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
 
+
   const handleSend = (content: string) => {
+    // ... logic ...
     const newMessage: Message = {
       id: Date.now().toString(),
       role: "user",
@@ -83,54 +85,56 @@ export default function Home() {
   };
 
   return (
-    <Layout
-      onNewChat={handleNewChat}
-      onHistoryToggle={toggleHistory}
-      isHistoryOpen={isHistoryOpen}
-    >
-      <div className="flex flex-1 overflow-hidden relative">
-        <HistoryPanel
-          isOpen={isHistoryOpen}
-          onClose={() => setIsHistoryOpen(false)}
-        />
+    <div className="h-full w-full">
+      <Layout
+        onNewChat={handleNewChat}
+        onHistoryToggle={toggleHistory}
+        isHistoryOpen={isHistoryOpen}
+      >
+        <div className="flex flex-1 overflow-hidden relative">
+          <HistoryPanel
+            isOpen={isHistoryOpen}
+            onClose={() => setIsHistoryOpen(false)}
+          />
 
-        <div className="flex-1 flex flex-col min-w-0 transition-all duration-500 ease-in-out">
-          {view === "initial" ? (
-            <InitialView
-              onSend={handleSend}
-              onHistoryClick={toggleHistory}
-              onNewChat={handleNewChat}
-            />
-          ) : (
-            <ChatView
-              messages={messages}
-              onSend={handleSend}
-              onHistoryClick={toggleHistory}
-              onViewArtifact={handleViewArtifact}
-              onNewChat={handleNewChat}
-            />
-          )}
-        </div>
-
-        <PreviewPanel
-          isOpen={isPreviewOpen}
-          onClose={() => setIsPreviewOpen(false)}
-          title="Artifacts: Generated UI"
-        >
-          <div className="space-y-8">
-            <div className="flex items-center justify-between">
-              <h3 className="text-zinc-500 text-xs font-bold uppercase tracking-widest">Live Preview</h3>
-              <div className="flex gap-1.5 opacity-60">
-                <div className="w-1.5 h-1.5 rounded-full bg-zinc-600" />
-                <div className="w-1.5 h-1.5 rounded-full bg-zinc-600" />
-                <div className="w-1.5 h-1.5 rounded-full bg-zinc-600" />
-              </div>
-            </div>
-
-            <CardLibrary />
+          <div className="flex-1 flex flex-col min-w-0 transition-all duration-500 ease-in-out">
+            {view === "initial" ? (
+              <InitialView
+                onSend={handleSend}
+                onHistoryClick={toggleHistory}
+                onNewChat={handleNewChat}
+              />
+            ) : (
+              <ChatView
+                messages={messages}
+                onSend={handleSend}
+                onHistoryClick={toggleHistory}
+                onViewArtifact={handleViewArtifact}
+                onNewChat={handleNewChat}
+              />
+            )}
           </div>
-        </PreviewPanel>
-      </div>
-    </Layout>
+
+          <PreviewPanel
+            isOpen={isPreviewOpen}
+            onClose={() => setIsPreviewOpen(false)}
+            title="Artifacts: Generated UI"
+          >
+            <div className="space-y-8">
+              <div className="flex items-center justify-between">
+                <h3 className="text-zinc-500 text-xs font-bold uppercase tracking-widest">Live Preview</h3>
+                <div className="flex gap-1.5 opacity-60">
+                  <div className="w-1.5 h-1.5 rounded-full bg-zinc-600" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-zinc-600" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-zinc-600" />
+                </div>
+              </div>
+
+              <CardLibrary />
+            </div>
+          </PreviewPanel>
+        </div>
+      </Layout>
+    </div>
   );
 }
