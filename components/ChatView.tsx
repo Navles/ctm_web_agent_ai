@@ -24,13 +24,15 @@ export const ChatView = ({
     onSend,
     onHistoryClick,
     onViewArtifact,
-    onNewChat
+    onNewChat,
+    onFileUpload
 }: {
     messages: Message[],
     onSend: (msg: string) => void,
     onHistoryClick?: () => void,
     onViewArtifact?: (artifactId: string) => void,
-    onNewChat?: () => void
+    onNewChat?: () => void,
+    onFileUpload?: (file: File) => void
 }) => {
     const scrollRef = useRef<HTMLDivElement>(null);
     const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -118,7 +120,7 @@ export const ChatView = ({
                 <InputBar
                     onSend={onSend}
                     onHistoryClick={onHistoryClick}
-                    onNewChat={onNewChat}
+                    onFileUpload={onFileUpload}
                 />
                 <div className="text-center mt-3">
                     <p className="text-[11px] text-zinc-500 font-medium opacity-60">

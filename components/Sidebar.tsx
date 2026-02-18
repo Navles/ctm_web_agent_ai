@@ -66,9 +66,9 @@ export const Sidebar = ({
             {/* Theme toggle at bottom */}
             <div className="flex flex-col items-center gap-4">
                 <ThemeToggle />
-                <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-muted-foreground text-xs font-medium hover:bg-secondary/40 transition-colors cursor-pointer ring-1 ring-border">
+                {/* <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-muted-foreground text-xs font-medium hover:bg-secondary/40 transition-colors cursor-pointer ring-1 ring-border">
                     U
-                </div>
+                </div> */}
             </div>
         </aside >
     );
